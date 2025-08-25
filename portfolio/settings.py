@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-1rcms$-4txcwu817_uyv4@f*u=$!c1iwf2ayiwzox8lqvva((_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['pandya-jeet-portfolio.onrender.com']
+ALLOWED_HOSTS = ['portfolio-pandya-jeet.onrender.com']
 
 
 # Application definition
@@ -127,5 +127,5 @@ MEDIA_ROOT = BASE_DIR / 'media'#
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ["https://pandya-jeet-portfolio.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://portfolio-pandya-jeet.onrender.com"]
 
