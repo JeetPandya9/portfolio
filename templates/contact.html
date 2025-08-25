@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Contact Me{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center text-white d-flex align-items-center justify-content-center" style="min-height: 40vh; background: radial-gradient( #1f4037, #1a1a1a, #1f4037);">
+    <div class="container">
+        <h1 class="display-4 fw-bold toxic-green">Get In Touch</h1>
+        <p class="lead text-dark">Have a project in mind or just want to say hello? I’d love to hear from you.</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-5 bg-dark text-light">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Contact Form -->
+            <div class="col-lg-6">
+                <div class="card gradient-card toxic-border shadow-lg rounded-4 h-100">
+                    <div class="card-body p-4">
+                        <h4 class="mb-4 text-info">Send a Message</h4>
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control toxic-input rounded-3" id="name" name="name" placeholder="Enter your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control toxic-input rounded-3" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control toxic-input rounded-3" id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-info w-100 rounded-3 fw-semibold">
+                                <i class="fas fa-paper-plane me-2"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-lg-6">
+                <div class="card gradient-card toxic-border shadow-lg rounded-4 h-100">
+                    <div class="card-body p-4">
+                        <h4 class="mb-4 text-info">Contact Information</h4>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="fas fa-envelope me-2 text-info"></i>
+                                <strong class="me-2 text-success">Email:</strong>
+                                <span>jeet.pandya.0908@gmail.com</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="fas fa-phone me-2 text-info"></i>
+                                <strong class="me-2 text-success">Phone:</strong>
+                                <span>9265319193</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt me-2 text-info"></i>
+                                <strong class="me-2 text-success">Location:</strong>
+                                <span>Rajkot, India</span>
+                            </li>
+                        </ul>
+
+                        <h5 class="mb-3 text-info">Connect with Me</h5>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="https://github.com/JeetPandya9" target="_blank" 
+                            class="btn btn-outline-light rounded-3 d-flex align-items-center px-3">
+                                <i class="fab fa-github me-2"></i> GitHub
+                            </a>
+                            <a href="https://www.linkedin.com/in/jeetpandya-developer" target="_blank" 
+                            class="btn btn-outline-info rounded-3 d-flex align-items-center px-3">
+                                <i class="fab fa-linkedin me-2"></i> LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

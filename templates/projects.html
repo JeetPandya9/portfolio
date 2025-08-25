@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Projects{% endblock %}
+
+{% block content %}
+<!-- Hero Header -->
+<section class="text-center text-white d-flex align-items-center" 
+         style="background: linear-gradient(135deg, #1f4037, #0d1b1e, #1f4037); height: 40vh;">
+    <div class="container">
+        <h1 class="display-4 fw-bold toxic-green">My Projects</h1>
+        <p class="lead toxic-sub">A collection of applications and websites I’ve built with passion 💻</p>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0 toxic-green">Featured Work</h2>
+            <!-- Future Filter (optional JS) -->
+            <select class="form-select w-auto">
+                <option selected disabled>Filter by Tech</option>
+                <option>All</option>
+                <option>Python/Django</option>
+                <option>JavaScript</option>
+                <option>React</option>
+                <option>Database</option>
+            </select>
+        </div>
+        
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-lg project-card gradient-card toxic-border" 
+                     style="background: linear-gradient(135deg, #000000ff, #373737ff);">
+                        <img src="{{ project.image.url }}" class="card-img-top rounded-top" alt="{{ project.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title text-light">{{ project.title }}</h5>
+                            <p class="card-text text-light">{{ project.description|truncatewords:20 }}</p>
+                            <a href="{{ project.url }}" class="btn btn-outline-primary btn-sm">🔗 View Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- GitHub CTA -->
+<section class="py-5 bg-dark text-white text-center">
+    <div class="container">
+        <h2 class="mb-3">Want to see more?</h2>
+        <p class="mb-4">Check out my complete portfolio and open-source projects on GitHub.</p>
+        <a href="https://github.com/yourusername" class="btn btn-light btn-lg" target="_blank">🌟 Visit My GitHub</a>
+    </div>
+</section>
+
+<!-- Extra Styles -->
+<style>
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.card-img-container {
+    overflow: hidden;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+.card-img-container img {
+    transition: transform 0.4s ease;
+}
+.card-img-container img:hover {
+    transform: scale(1.1);
+}
+</style>
+{% endblock %}

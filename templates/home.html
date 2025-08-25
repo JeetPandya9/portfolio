@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center d-flex align-items-center"
+    style="background: linear-gradient(135deg, #0d1b1e, #1f4037, #99f2c8 ); height: 80vh;">
+
+    <div class="container">
+        <h1 class="display-3 fw-bold toxic-green">Hi, I'm Jeet Pandya 👋</h1>
+        <p class="lead mb-4 toxic-sub">A passionate Full Stack Developer building modern, scalable, and user-friendly applications.</p>
+        <a href="{% url 'projects' %}" class="btn btn-primary btn-lg mx-2 my-2 my-md-0 shadow">🚀 View My Work</a>
+        <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg mx-2 my-2 my-md-0">📩 Contact Me</a>
+    </div>
+</section>
+
+<!-- About Me -->
+<section class="py-5 bg-dark">
+    <div class="container">
+        <h2 class="text-center mb-4 text-light">About Me</h2>
+        <p class="text-center text-light col-lg-8 mx-auto">
+            I’m a developer who loves crafting innovative web solutions. 
+            From frontend design to backend logic, I enjoy building clean, efficient, and impactful applications 
+            that make a difference. With expertise in Django, JavaScript, and modern UI frameworks, 
+            I turn ideas into fully functional projects.
+        </p>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="py-5 toxic-border" style="background: linear-gradient(135deg, #1c1c1c, #2d3436); color: #f8f9fa;">
+    <div class="container">
+        <h2 class="text-center mb-5 toxic-green">Skills</h2>
+        <div class="row text-center">
+            <div class="col-md-3 mb-4">
+                <i class="fab fa-html5 fa-3x text-danger mb-3"></i>
+                <h5 class="toxic-sub">HTML5 / CSS3</h5>
+                <p class="toxic-sub small">Responsive & modern web design</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <i class="fab fa-js-square fa-3x text-warning mb-3"></i>
+                <h5 class="toxic-sub">JavaScript</h5>
+                <p class="toxic-sub small">Dynamic, interactive applications</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <i class="fab fa-python fa-3x text-info mb-3"></i>
+                <h5 class="toxic-sub">Python / Django</h5>
+                <p class="toxic-sub small">Backend APIs & business logic</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <i class="fas fa-database fa-3x text-success mb-3"></i>
+                <h5 class="toxic-sub">Databases</h5>
+                <p class="toxic-sub small">MySQL, PostgreSQL, MongoDB</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects -->
+<section class="py-5 bg-dark">
+    <div class="container">
+        <h2 class="text-center mb-5 text-light">Featured Projects</h2>
+        <div class="row">
+            {% for project in projects|slice:":3" %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-lg project-card gradient-card toxic-border" 
+                     style="background: linear-gradient(135deg, #000000ff, #373737ff);">
+                        <img src="{{ project.image.url }}" class="card-img-top rounded-top" alt="{{ project.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title text-light">{{ project.title }}</h5>
+                            <p class="card-text text-light">{{ project.description|truncatewords:20 }}</p>
+                            <a href="{{ project.url }}" class="btn btn-outline-primary btn-sm">🔗 View Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'projects' %}" class="btn btn-primary btn-lg shadow">View All Projects</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Me -->
+<section id="contact" class="py-5 text-white text-center" 
+         style="background: linear-gradient(135deg, #141E30, #243B55);">
+    <div class="container">
+        <h2 class="mb-4">Let’s Work Together</h2>
+        <p class="mb-4 text-light">Interested in collaborating or hiring me? Let’s connect!</p>
+        <a href="mailto:your.email@example.com" class="btn btn-light btn-lg shadow">📧 Email Me</a>
+    </div>
+</section>
+
+
+{% endblock %}
