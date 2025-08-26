@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1rcms$-4txcwu817_uyv4@f*u=$!c1iwf2ayiwzox8lqvva((_
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
-    "portfolio1-jeet-pandya.onrender.com",
+    "portfolio2-jeet-pandya.onrender.com",
     "localhost",
     "127.0.0.1",
 ]
@@ -134,7 +134,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ["https://portfolio1-jeet-pandya.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://portfolio2-jeet-pandya.onrender.com"]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
